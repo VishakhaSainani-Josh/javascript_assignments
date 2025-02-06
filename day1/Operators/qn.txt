@@ -1,0 +1,4 @@
+Operators: 
+1. What is the difference between ++i and i++? 
+2. What do you think would happen if you pass an index beyond the range of the string? Or if you pass a negative index? Try it out. 
+3. Do you think JSON.stringify would work for arrays as well? What about nested objects? What happens if we pass numbers, strings, undefined, null to JSON.stringify? 4. What happens if you pass a regular/invalid JSON string to JSON.parse? What will happen if such an invalid function runs in the program? Will other parts of the code execute correctly after that?

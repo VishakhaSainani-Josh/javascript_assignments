@@ -1,0 +1,14 @@
+<!-- Given the above html, find out what happens when you try to access the element h1 in javascript (using document.getElementById) and change its content to “Goodbye World” when the script is attached: 
+● at the start of the body tag -->
+
+<html>
+  <head></head>
+  <body>
+    <script>
+      document.getElementById("test").innerHTML = "GoodBye World!";
+    </script>
+    <h1 id="test">Hello World!</h1>
+  </body>
+</html>
+
+<!-- Here the output will be Hello World, again here the script tag is executed before body and does not find any h1 tag  -->

@@ -1,0 +1,44 @@
+<!-- Create a form to submit a blog to a mock API (reqres.in) -->
+
+<!DOCTYPE html>
+  <head>
+    <title>Submit Blog</title>
+  </head>
+  <body>
+    <h2>Submit a Blog</h2>
+    <form id="blogForm">
+      <label>Title:</label>
+      <input type="text" id="title" required /><br /><br />
+
+      <label>Body:</label>
+      <textarea id="body" required></textarea><br /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+      document
+        .getElementById("blogForm")
+        .addEventListener("submit", async function (event) {
+            event.preventDefault()
+          let title = document.getElementById("title").value;
+          let body = document.getElementById("body").value;
+
+          let response = await fetch("https://reqres.in/api/posts", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ title, body }),
+          });
+
+          let data = await response.json();
+          document.getElementById("message").innerText =
+            "Blog Submitted! Response: " + JSON.stringify(data);
+        });
+    </script>
+  </body>
+</html>
+
+
+

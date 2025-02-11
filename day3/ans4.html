@@ -1,0 +1,80 @@
+<!-- Create a blog list page that fetches a list of users from a mock API and adds them to a
+table on the page after loading. Add a button to sort the users by name. Add an input to
+filter the table by search. (Optional: Show “Loading...” or a loading spinner on the scre
+till the data loads) -->
+
+<!--  Create a blog list page with sorting and filtering
+Fetch users from https://reqres.in/api/users
+Display them in a table
+Add a sorting button
+Add a search input for filtering
+Show "Loading..." before data loads -->
+
+<!DOCTYPE html>
+<head>
+    <title>Users List</title>
+</head>
+<body>
+
+    <h2>Users List</h2>
+    <input type="text" id="search" placeholder="Search users..." onkeyup="filterUsers()">
+    <button onclick="fetchUsers()">Refresh List</button>
+
+    <p id="loading">Loading...</p>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th onclick="sortUsers()">Name (Click to Sort)</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="userTable"></tbody>
+    </table>
+
+    <script>
+        let users = [];
+
+        async function fetchUsers() {
+            document.getElementById("loading").style.display = "block";
+            
+            let response = await fetch("https://reqres.in/api/users");
+            let data = await response.json();
+            
+            users = data.data;
+            document.getElementById("loading").style.display = "none";
+
+            displayUsers(users);
+        }
+
+        function displayUsers(userList) {
+            let table = document.getElementById("userTable");
+            table.innerHTML = "";
+
+            userList.forEach(user => {
+                let row = `<tr>
+                    <td>${user.first_name} ${user.last_name}</td>
+                    <td>${user.email}</td>
+                </tr>`;
+                table.innerHTML += row;
+            });
+        }
+
+        function sortUsers() {
+            users.sort((a, b) => (a.first_name + a.last_name).localeCompare(b.first_name + b.last_name));
+            displayUsers(users);
+        }
+
+        function filterUsers() {
+            let searchValue = document.getElementById("search").value.toLowerCase();
+            let filteredUsers = users.filter(user => 
+                (user.first_name + " " + user.last_name).toLowerCase().includes(searchValue)
+            );
+            displayUsers(filteredUsers);
+        }
+
+        fetchUsers();
+    </script>
+
+</body>
+</html>

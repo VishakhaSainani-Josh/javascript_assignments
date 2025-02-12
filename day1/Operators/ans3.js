@@ -18,7 +18,7 @@ console.log(JSON.stringify(undefined));
 console.log(JSON.stringify(null));
 
 
-const obj1='{"name":"vishi",age:20}' //an invalid json
+const obj1 = '{"name":"vishi",age:20}' //an invalid json
 console.log(JSON.parse(obj1))
 
 //if we pass invalid json string to json parse it will throw an error

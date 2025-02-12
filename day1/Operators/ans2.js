@@ -2,7 +2,7 @@
 Or if you pass a negative index? Try it out.  */
 
 
-let str1="Hello"
+let str1 = "Hello"
 
 console.log(str1[0]) //output H
 console.log(str1[8]) //undefined

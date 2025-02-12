@@ -22,9 +22,8 @@ let obj = {
     }
 }
 
-
-let newObj={...obj}
-newObj.address.details[0]=5
+let newObj = { ...obj }
+newObj.address.details[0] = 5
 
 console.log(newObj)
 

@@ -2,8 +2,6 @@
 ○ Write a function filterByName that accepts a string as a parameter and returns an array with only those objects 
 where the first_name field includes that string. */
 
-
-
 const arr = [{
     "id": 1,
     "first_name": "Nicki",
@@ -58,34 +56,21 @@ const arr = [{
 }]
 
 function filterByName(name) {
-    let result = []
-    arr.map((val) => {
-        if (val.first_name == name) {
-            result.push(val)
-        }
-    })
+    const result = arr.filter((ele)=>ele.first_name==name)
     return result
 }
 let name1 = 'Townie'
 console.log(filterByName(name1))
 
 
-
 /*○ Use Array.map to return an array of all the email fields. */
-let emails = []
-arr.map((val) => {
-    emails.push(val.email)
-})
-console.log(emails)
-
+console.log(arr.map((val) => val.email))
 
 //○ Use Array.sort to return the array sorted in descending order by date_of_birth. 
-
 arr.sort((a, b) => new Date(b.date_of_birth) - new Date(a.date_of_birth))
 console.log(arr)
 
 //○ Write a function getById that accepts a number as a parameter and returns the object where the id is equal to that number.  
-
 function getById(num) {
     return arr.find((val) =>
         val.id === num

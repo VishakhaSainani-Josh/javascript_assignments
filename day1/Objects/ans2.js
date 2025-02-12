@@ -22,7 +22,9 @@ let obj = {
     },
     d: "Dog"
 }
+
 let ans = {}
+
 function filterObject(obj) {
     Object.entries(obj).forEach(([key, value]) => {
         if (typeof value !== "object" || value === null) {
@@ -30,5 +32,6 @@ function filterObject(obj) {
         }
     })
 }
+
 filterObject(obj)
 console.log(ans)

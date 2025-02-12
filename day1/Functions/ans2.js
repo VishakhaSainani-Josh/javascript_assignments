@@ -11,8 +11,6 @@ Explore the following cases - what is printed in the console, and what gets retu
 ○ test(() => callbackFunc()) 
 ○ What happens when you return callback() from the test function? ○ What happens when you return callback from the test function? */
 
-
-
 function test(callback) {
     callback();
 }

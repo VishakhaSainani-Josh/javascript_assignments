@@ -8,14 +8,14 @@
 // }
 
 
-const ansFn=new Promise((resolve)=>{
-    setTimeout(resolve,3000)
+const ansFn = new Promise((resolve) => {
+    setTimeout(resolve, 3000)
 })
 
 const func = async () => {
-console.log("Printing before")
-await ansFn.then()
-console.log("Printing after")
+    console.log("Printing before")
+    await ansFn
+    console.log("Printing after")
 }
 
 

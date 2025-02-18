@@ -1,5 +1,5 @@
 const Home = () => {
-  return <h2>Home </h2>;
+  return <h2>Welcome to your TodoList,<br></br> Login to continue</h2>;
 };
 
 export default Home;

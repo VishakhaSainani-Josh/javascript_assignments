@@ -1,16 +1,23 @@
+import { Link } from "react-router-dom";
 import Todo from "./Todo";
 
 const ViewTodo = ({
   tasks,
 }: {
   tasks: { title: string; description: string }[];
-  
 }) => {
   return (
     <div>
+      <h3>Click on any Todo to view it</h3>
       {tasks.map((task, index) => {
         return (
-          <Todo key={index} title={task.title} description={task.description} />
+          <Link to={`/todos/${index}`} key={index}>
+            <Todo
+              key={index}
+              title={task.title}
+              description={task.description}
+            />
+          </Link>
         );
       })}
     </div>

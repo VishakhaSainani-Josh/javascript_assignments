@@ -1,23 +1,27 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/todo" >Add Todo</Link>
-          </li>
-          <li>
-            <Link to="/todos">View todos</Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  )
-}
+    <nav style={{ padding: "40px" }}>
+      <ul style={{ display: "flex", justifyContent: "center" }}>
+        <li style={{ listStyle: "none" }}>
+          <Link to="/" style={{ margin: "30px" }}>
+            Home
+          </Link>
+        </li>
+        <li style={{ listStyle: "none" }}>
+          <Link to="/todo" style={{ margin: "30px" }}>
+            Add Todo
+          </Link>
+        </li>
+        <li style={{ listStyle: "none" }}>
+          <Link to="/todos" style={{ margin: "30px" }}>
+            View all Todos
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;

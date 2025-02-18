@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, Dispatch, SetStateAction } from "react";
 
 function AddTodo({
   tasks,
   setTasks,
 }: {
   tasks: { title: string; description: string }[];
-  setTasks: React.Dispatch<
-    React.SetStateAction<
+  setTasks: Dispatch<
+    SetStateAction<
       {
         title: string;
         description: string;
@@ -26,6 +26,7 @@ function AddTodo({
     }
     setTasks([...tasks, newTask]);
     setNewTask({ title: "", description: "" });
+    alert("To Do added");
   }
 
   return (

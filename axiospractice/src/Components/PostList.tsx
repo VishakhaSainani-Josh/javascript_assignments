@@ -1,34 +1,40 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+interface post {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
 const PostList = () => {
-  const [posts, setPosts] = useState<any>([]);
+  const [posts, setPosts] = useState<post[]>([]);
 
   async function getPosts() {
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/posts"
-    );
-    setPosts(response.data);
+    try {
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/posts"
+      );
+      setPosts(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   useEffect(() => {
     console.log("axios fetching data");
-    try {
-      getPosts();
-    } catch (error) {
-      console.log(error);
-    }
+    getPosts();
   }, []);
 
   const handlePost = () => {
+    const payload = {
+      userId: 11,
+      title: "my title",
+      body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
+    };
     axios
-      .post("https://jsonplaceholder.typicode.com/posts", {
-        userId: 11,
-        id: 101,
-        title: "my title",
-        body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
-      })
+      .post("https://jsonplaceholder.typicode.com/posts", payload)
       .then((res) => setPosts([...posts, res.data]));
   };
 
@@ -39,7 +45,7 @@ const PostList = () => {
         <button type="submit" onClick={handlePost}>
           click to add
         </button>
-        {posts.map((post: any) => (
+        {posts.map((post: post) => (
           <li key={post.id}>{post.title}</li>
         ))}
       </ul>

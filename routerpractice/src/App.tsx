@@ -7,37 +7,24 @@ import ViewTodo from "./Components/ViewTodo";
 import { useState } from "react";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import Task from "./Components/Task";
+import TaskProvider from "./Context/taskContext";
+import AuthProvider from "./Context/userContext";
 
 function App() {
-  const [tasks, setTasks] = useState<{ title: string; description: string }[]>(
-    []
-  );
-
-  type AuthUser = { id: string; name: string };
-  const [user, setUser] = useState<AuthUser | null>(null);
-  const handleLogin = () => setUser({ id: "1", name: "vishakha" });
-  const handleLogout = () => setUser(null);
   return (
-    <>
-      <Navbar />
-      {user ? (
-        <button onClick={handleLogout} style={{margin:"20px"}}>Logout</button>
-      ) : (
-        <button onClick={handleLogin} style={{margin:"20px"}}>Login</button>
-      )}
-      <Routes>
-        <Route path="/" element={<Home />} />
-
-        <Route element={<ProtectedRoute user={user} />}>
-          <Route
-            path="/todo"
-            element={<AddTodo tasks={tasks} setTasks={setTasks} />}
-          />
-          <Route path="/todos" element={<ViewTodo tasks={tasks} />} />
-          <Route path="/todos/:id" element={<Task tasks={tasks} />} />
-        </Route>
-      </Routes>
-    </>
+    <AuthProvider>
+      <TaskProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/todo" element={<AddTodo />} />
+            <Route path="/todos" element={<ViewTodo />} />
+            <Route path="/todos/:id" element={<Task />} />
+          </Route>
+        </Routes>
+      </TaskProvider>
+    </AuthProvider>
   );
 }
 

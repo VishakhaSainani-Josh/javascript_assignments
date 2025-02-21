@@ -1,19 +1,9 @@
-import { useState, Dispatch, SetStateAction } from "react";
+import { useState } from "react";
+import { useTask } from "../Context/taskContext";
 
-function AddTodo({
-  tasks,
-  setTasks,
-}: {
-  tasks: { title: string; description: string }[];
-  setTasks: Dispatch<
-    SetStateAction<
-      {
-        title: string;
-        description: string;
-      }[]
-    >
-  >;
-}) {
+function AddTodo() {
+  const { tasks, setTasks } = useTask();
+
   const [newTask, setNewTask] = useState<{
     title: string;
     description: string;

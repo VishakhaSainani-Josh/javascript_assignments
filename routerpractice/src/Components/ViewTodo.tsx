@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
 import Todo from "./Todo";
+import { useTask } from "../Context/taskContext";
 
-const ViewTodo = ({
-  tasks,
-}: {
-  tasks: { title: string; description: string }[];
-}) => {
+const ViewTodo = () => {
+  const { tasks } = useTask();
   return (
     <div>
       <h3>Click on any Todo to view it</h3>

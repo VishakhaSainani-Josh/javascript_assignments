@@ -1,14 +1,11 @@
 import { useParams } from "react-router-dom";
+import { useTask } from "../Context/taskContext";
 
-const Todo = ({
-  tasks,
-}: {
-  tasks: { title: string; description: string }[];
-}) => {
+const Todo = () => {
+  const { tasks } = useTask();
   const params = useParams();
   const id = Number(params.id);
-  console.log(id);
-  console.log(tasks[id]);
+
   return (
     <div
       style={{

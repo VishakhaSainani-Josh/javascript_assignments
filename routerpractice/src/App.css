@@ -40,3 +40,92 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.todo{
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  background-color: #f9f9f9;
+}
+
+.input{
+  width: 18px;
+  height: 18px;
+}
+
+.todo div{
+  flex-grow: 1;
+}
+
+.title{
+  font-weight: bold;
+  display: block;
+  color: black;
+}
+
+.description{
+  color: #555;
+  font-size: 14px;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.nav-link {
+  margin: 30px;
+}
+
+.auth-section {
+  display: flex;
+}
+
+.auth-button {
+  height: 50px;
+}
+
+
+.app-container {
+  text-align: center;
+}
+
+.input-title {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #dbdcff;
+  color: black;
+}
+
+.input-description {
+  background: #dbdcff;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 320px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

@@ -1,30 +1,25 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../Context/userContext";
+import '../App.css';
 
 const Navbar = () => {
   const { user, login, logout } = useAuth();
 
   return (
-    <nav style={{ padding: "40px" }}>
-      <ul style={{ display: "flex", justifyContent: "center" }}>
-        <li style={{ listStyle: "none" }}>
-          <Link to="/" style={{ margin: "30px" }}>
-            Home
-          </Link>
+    <nav className="navbar">
+      <ul className="nav-list">
+        <li className="nav-item">
+          <Link to="/" className="nav-link">Home</Link>
         </li>
-        <li style={{ listStyle: "none" }}>
+        <li className="nav-item">
           {user ? (
-            <div>
-              <button onClick={logout}>Logout</button>
-              <Link to="/todo" style={{ margin: "30px" }}>
-                Add Todo
-              </Link>
-              <Link to="/todos" style={{ margin: "30px" }}>
-                View all Todos
-              </Link>
+            <div className="auth-section">
+              <button className="auth-button" onClick={logout}>Logout</button>
+              <Link to="/todo" className="nav-link">Add Todo</Link>
+              <Link to="/todos" className="nav-link">View all Todos</Link>
             </div>
           ) : (
-            <button onClick={login}>Login </button>
+            <button className="auth-button" onClick={login}>Login</button>
           )}
         </li>
       </ul>

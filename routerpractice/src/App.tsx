@@ -4,7 +4,6 @@ import Navbar from "./Components/Navbar";
 import AddTodo from "./Components/AddTodo";
 import Home from "./Components/Home";
 import ViewTodo from "./Components/ViewTodo";
-import { useState } from "react";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import Task from "./Components/Task";
 import TaskProvider from "./Context/taskContext";

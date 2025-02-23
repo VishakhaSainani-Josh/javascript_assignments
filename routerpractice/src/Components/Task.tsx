@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useTask } from "../Context/taskContext";
+import "../App.css";
 
 const Todo = () => {
   const { tasks } = useTask();
@@ -7,27 +8,11 @@ const Todo = () => {
   const id = Number(params.id);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        margin: "10px",
-        gap: "10px",
-        padding: "10px",
-        border: "1px solid #ccc",
-        borderRadius: "5px",
-        marginBottom: "8px",
-        backgroundColor: "#f9f9f9",
-      }}
-    >
-      <input style={{ width: "18px", height: "18px" }} type="checkbox" />
-      <div style={{ flexGrow: 1 }}>
-        <span style={{ fontWeight: "bold", display: "block", color: "black" }}>
-          {tasks[id].title}
-        </span>
-        <span style={{ color: "#555", fontSize: "14px" }}>
-          {tasks[id].description}
-        </span>
+    <div className="todo">
+      <input className="input" />
+      <div>
+        <span className="title">{tasks[id].title}</span>
+        <span className="description">{tasks[id].description}</span>
       </div>
     </div>
   );

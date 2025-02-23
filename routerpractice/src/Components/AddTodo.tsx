@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTask } from "../Context/taskContext";
+import '../App.css'
 
 function AddTodo() {
   const { tasks, setTasks } = useTask();
@@ -24,12 +25,7 @@ function AddTodo() {
       <h2>TO DO TODAY!</h2>
       <div>
         <input
-          style={{
-            padding: "20px",
-            borderRadius: "10px",
-            backgroundColor: "#dbdcff",
-            color: "black",
-          }}
+          className="input-title"
           type="text"
           name="title"
           placeholder="Enter title"
@@ -37,14 +33,6 @@ function AddTodo() {
           onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
         />
         <input
-          style={{
-            background: "#dbdcff",
-            color: "black",
-            padding: "20px",
-            borderRadius: "10px",
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-            width: "320px",
-          }}
           className="input-description"
           type="text"
           name="description"
@@ -70,4 +58,5 @@ function AddTodo() {
     </div>
   );
 }
+
 export default AddTodo;
